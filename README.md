@@ -7,5 +7,6 @@
 
 ## Jour 2
 
+- Faire une maquette
 - Commencer par la première page VueJS
 - Faire la page Inscription / Connexion
