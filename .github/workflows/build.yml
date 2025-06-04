@@ -1,0 +1,36 @@
+name: Build Image and Push Registry
+
+on:
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
+      REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
+      REGISTRY_NAME: ${{ secrets.REGISTRY_NAME }}
+      ROOT_PASSWORD: ${{ secrets.ROOT_PASSWORD }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Update .env before build
+        run: |
+          echo "Updating .env"
+          sed -i 's/^VITE_API_BASE_URL=.*/VITE_API_BASE_URL="'${VITE_API_BASE_URL}'"/' .env
+
+      - name: Build Docker Image PHP
+        run: docker build -t $REGISTRY_NAME/vue-js-app .
+
+      - name: Log in to Docker Registry
+        run: echo $REGISTRY_PASSWORD | docker login $REGISTRY_NAME -u $REGISTRY_USERNAME --password-stdin
+
+      - name: Push Docker Image PHP
+        run: docker push $REGISTRY_NAME/vue-js-app
