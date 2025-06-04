@@ -47,5 +47,5 @@ jobs:
           docker compose rm vuejsapp-container || true
 
           echo "--Run new container--"
-          docker run -p 6000:80 --name vuejsapp-container vuejsapp
+          docker run -p 6000:80 --name vuejsapp-container $REGISTRY_NAME/vue-js-app
           EOF
