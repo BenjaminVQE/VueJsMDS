@@ -13,3 +13,4 @@
 ## Jour 3
 
 - Faire la page Inscription / Connexion
+- Faire un slider
