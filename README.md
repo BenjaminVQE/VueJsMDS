@@ -9,4 +9,7 @@
 
 - Faire une maquette
 - Commencer par la première page VueJS
+
+## Jour 3
+
 - Faire la page Inscription / Connexion
