@@ -1,4 +1,4 @@
-# VueJsMDS
+### VueJsMDS
 
 ## Jour 1
 
@@ -14,4 +14,3 @@
 
 - Faire la page Inscription / Connexion
 - Faire un slider
--
