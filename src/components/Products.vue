@@ -20,7 +20,7 @@
     <h2>Liste des produits</h2>
     <v-list>
       <v-list-item
-        v-for="product in products"
+        v-for="product in products.member"
         :key="product.id"
       >
         <v-list-item-title>{{ product.name }}</v-list-item-title>
