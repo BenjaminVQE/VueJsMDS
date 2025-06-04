@@ -1,6 +1,13 @@
+<script>
+import { getUserById } from '@/api/user';
+
+const user = getUserById(1);
+</script>
+
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <h1>Users</h1>
+    <p>{{ user }}</p>
   </div>
 </template>
 
