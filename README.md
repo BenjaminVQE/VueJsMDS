@@ -14,4 +14,3 @@
 
 - Faire la page Inscription / Connexion
 - Faire un slider
-- CORS Allow API
