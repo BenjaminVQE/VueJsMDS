@@ -25,11 +25,11 @@ jobs:
           echo "Updating .env"
           sed -i 's/^VITE_API_BASE_URL=.*/VITE_API_BASE_URL="'${VITE_API_BASE_URL}'"/' .env
 
-      - name: Build Docker Image PHP
+      - name: Build Docker Image Node/VueJS + NGINX
         run: docker build -t $REGISTRY_NAME/vue-js-app .
 
       - name: Log in to Docker Registry
         run: echo $REGISTRY_PASSWORD | docker login $REGISTRY_NAME -u $REGISTRY_USERNAME --password-stdin
 
-      - name: Push Docker Image PHP
+      - name: Push Docker Image Node/VueJS + NGINX
         run: docker push $REGISTRY_NAME/vue-js-app
