@@ -24,7 +24,7 @@ jobs:
       - name: Update .env before build
         run: |
           echo "Updating .env"
-          sed -i 's/^VITE_API_BASE_URL=.*/VITE_API_BASE_URL="'${VITE_API_BASE_URL}'"/' .env
+          sed -i 's|^VITE_API_BASE_URL=.*|VITE_API_BASE_URL="'${VITE_API_BASE_URL}'"|' .env
 
       - name: Build Docker Image Node/VueJS + NGINX
         run: docker build -t $REGISTRY_NAME/vue-js-app .
