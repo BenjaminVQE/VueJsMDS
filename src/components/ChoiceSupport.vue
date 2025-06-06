@@ -31,7 +31,7 @@
             <v-col>
                 <div>
                     <h1 class="d-flex flex-column align-center justify-center">
-                        Quelle est la quantité de support en m² ?
+                        Quantité de support
                     </h1>
                 </div>
             </v-col>
