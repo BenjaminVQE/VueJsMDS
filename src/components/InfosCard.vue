@@ -7,8 +7,6 @@ const error = ref('')
 onMounted(async () => {
   try {
     profiles.value = await getUserConnected();
-    console.log(profiles.value);
-    console.log("test");
   } catch (e) {
     error.value = e.message
   }

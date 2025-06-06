@@ -1,7 +1,6 @@
 <script setup>
-import { getUserConnected } from '../services/api/profile.js'
 import { ref, onMounted } from 'vue'
-import { logoutUser } from '../services/api/logout.js'
+
 const orders = ref([])
 const error = ref('')
 

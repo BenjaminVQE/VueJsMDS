@@ -10,6 +10,7 @@ export async function getUserConnected() {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     });
+    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error('Erreur lors de la récupération de l’utilisateur connecté:', error);

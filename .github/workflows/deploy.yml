@@ -44,7 +44,7 @@ jobs:
 
           echo "--Stop & Rm container--"
           docker stop vuejsapp-container || true
-          docker compose rm vuejsapp-container || true
+          docker rm vuejsapp-container || true
 
           echo "--Run new container--"
           docker run -d -p 6000:80 --name vuejsapp-container $REGISTRY_NAME/vue-js-app

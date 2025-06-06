@@ -14,7 +14,7 @@ import Footer from '../components/Footer.vue'
         <Timeline :model-value="1" />
         <ChoiceSupport />
         <Products />
-        <ButtonStep :Back="'/'" :Next="'/products'" />
+        <ButtonStep :Back="'/'" :Next="'/options'" />
     </main>
     <Footer />
 </template>
