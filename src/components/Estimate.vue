@@ -51,7 +51,7 @@ if (storedCart) {
             </v-card>
             <v-card class="mx-auto pa-12 pb-8" elevation="8" max-width="600" rounded="lg">
                 <v-card-title class="text-h6">
-                    Résumé de votre commande
+                    Résumé de votre panier
                 </v-card-title>
 
                 <v-divider class="my-4" />

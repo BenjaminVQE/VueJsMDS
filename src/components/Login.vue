@@ -18,7 +18,6 @@ const handleSubmit = async (event) => {
     localStorage.setItem('token', token);
     const userInfo = await getUserConnected();
     localStorage.setItem('userConnected', JSON.stringify(userInfo));
-
     window.location.href = '/';
   } catch (error) {
     if (error.response && error.response.status === 401) {
