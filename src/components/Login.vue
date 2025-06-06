@@ -1,7 +1,9 @@
 <script setup>
 import { loginUser } from '../services/api/auth.js'
+import { getUserConnected } from '@/services/api/profile.js'
 import { ref } from 'vue'
 import logo from '../assets/logoTissup.png'
+
 const email = ref('')
 const password = ref('')
 const form = ref(null)
@@ -11,20 +13,22 @@ const handleSubmit = async (event) => {
   event.preventDefault()
   errorMsg.value = ''
   try {
-    const response = await loginUser(email.value, password.value)
-    console.log('Login successful:', response)
-    const token = response.token
-    localStorage.setItem('token', token)
-    window.location.href = '/'
+    const response = await loginUser(email.value, password.value);
+    const token = response.token;
+    localStorage.setItem('token', token);
+    const userInfo = await getUserConnected();
+    localStorage.setItem('userConnected', JSON.stringify(userInfo));
+
+    window.location.href = '/';
   } catch (error) {
     if (error.response && error.response.status === 401) {
-      errorMsg.value = "L'email ou le mot de passe est incorrect."
+      errorMsg.value = "L'email ou le mot de passe est incorrect.";
     } else if (error.message && error.message.toLowerCase().includes('invalid')) {
-      errorMsg.value = "L'email ou le mot de passe est incorrect."
+      errorMsg.value = "L'email ou le mot de passe est incorrect.";
     } else {
-      errorMsg.value = 'Une erreur est survenue veuillez réessayez plus tard.'
+      errorMsg.value = 'Une erreur est survenue veuillez réessayez plus tard.';
     }
-    console.error('Login failed:', error)
+    console.error('Login failed:', error);
 
   }
 }
