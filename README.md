@@ -14,4 +14,4 @@
 
 - Faire la page Inscription / Connexion
 - Faire un slider
-  t
+.
