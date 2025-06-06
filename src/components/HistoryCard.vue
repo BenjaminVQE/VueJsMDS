@@ -1,8 +1,8 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted } from "vue";
 
-const orders = ref([])
-const error = ref('')
+const orders = ref([]);
+const error = ref("");
 
 onMounted(async () => {
   try {
@@ -11,19 +11,17 @@ onMounted(async () => {
   } catch (e) {
     error.value = e.message;
   }
-})
+});
 </script>
 <template>
-  <v-container >
+  <v-container>
     <v-card class="mx-auto" max-width="400">
-      <v-card-title class="d-flex justify-center">
-        Votre historique de commandes
-      </v-card-title>
+      <v-card-title class="d-flex justify-center"> Votre historique de commandes </v-card-title>
       <v-card-text>
         <v-list dense>
-          <v-list-item v-for="order in orders.member " :key="order.id" class="d-flex justify-center">
+          <v-list-item v-for="order in orders.member" :key="order.id" class="d-flex justify-center">
             <v-list-item-content>
-              <v-list-item-title>{{  }}</v-list-item-title>
+              <v-list-item-title>{{}}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list>

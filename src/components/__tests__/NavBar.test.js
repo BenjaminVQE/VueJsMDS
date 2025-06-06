@@ -1,12 +1,12 @@
-import { render, screen, fireEvent } from '@testing-library/vue'
-import UserMenu from '../NavBar.vue'
-import { vi } from 'vitest'
+import { render, screen, fireEvent } from '@testing-library/vue';
+import UserMenu from '../NavBar.vue';
+import { vi } from 'vitest';
 
 vi.mock('../../services/api/logout.js', () => ({
   logoutUser: vi.fn(),
-}))
+}));
 
-import { logoutUser } from '../../services/api/logout.js'
+import { logoutUser } from '../../services/api/logout.js';
 
 const globalComponentsMock = {
   'v-btn': {
@@ -26,65 +26,65 @@ const globalComponentsMock = {
   'v-card': { template: `<section><slot /></section>` },
   'v-layout': { template: `<div><slot /></div>` },
   'v-main': { template: `<main><slot /></main>` },
-}
+};
 
 describe('UserMenu', () => {
   beforeEach(() => {
-    vi.clearAllMocks()
-    localStorage.clear()
-  })
+    vi.clearAllMocks();
+    localStorage.clear();
+  });
 
   test('affiche Accueil, Connexion et Inscription si pas de token', async () => {
     render(UserMenu, {
       global: {
         components: globalComponentsMock,
       },
-    })
+    });
 
-    const menuButton = screen.getByRole('button')
-    await fireEvent.click(menuButton)
+    const menuButton = screen.getByRole('button');
+    await fireEvent.click(menuButton);
 
-    expect(screen.getByText('Accueil')).toBeInTheDocument()
-    expect(screen.getByText('Connexion')).toBeInTheDocument()
-    expect(screen.getByText('Inscription')).toBeInTheDocument()
+    expect(screen.getByText('Accueil')).toBeInTheDocument();
+    expect(screen.getByText('Connexion')).toBeInTheDocument();
+    expect(screen.getByText('Inscription')).toBeInTheDocument();
 
-    expect(screen.queryByText('Mon Compte')).not.toBeInTheDocument()
-    expect(screen.queryByText('Déconnexion')).not.toBeInTheDocument()
-  })
+    expect(screen.queryByText('Mon Compte')).not.toBeInTheDocument();
+    expect(screen.queryByText('Déconnexion')).not.toBeInTheDocument();
+  });
 
   test('affiche Accueil, Mon Compte et Déconnexion si token présent', async () => {
-    localStorage.setItem('token', 'fake-token')
+    localStorage.setItem('token', 'fake-token');
     render(UserMenu, {
       global: {
         components: globalComponentsMock,
       },
-    })
+    });
 
-    const menuButton = screen.getByRole('button')
-    await fireEvent.click(menuButton)
+    const menuButton = screen.getByRole('button');
+    await fireEvent.click(menuButton);
 
-    expect(screen.getByText('Accueil')).toBeInTheDocument()
-    expect(screen.getByText('Mon Compte')).toBeInTheDocument()
-    expect(screen.getByText('Déconnexion')).toBeInTheDocument()
+    expect(screen.getByText('Accueil')).toBeInTheDocument();
+    expect(screen.getByText('Mon Compte')).toBeInTheDocument();
+    expect(screen.getByText('Déconnexion')).toBeInTheDocument();
 
-    expect(screen.queryByText('Connexion')).not.toBeInTheDocument()
-    expect(screen.queryByText('Inscription')).not.toBeInTheDocument()
-  })
+    expect(screen.queryByText('Connexion')).not.toBeInTheDocument();
+    expect(screen.queryByText('Inscription')).not.toBeInTheDocument();
+  });
 
   test('appelle logoutUser au clic sur Déconnexion', async () => {
-    localStorage.setItem('token', 'fake-token')
+    localStorage.setItem('token', 'fake-token');
     render(UserMenu, {
       global: {
         components: globalComponentsMock,
       },
-    })
+    });
 
-    const menuButton = screen.getByRole('button')
-    await fireEvent.click(menuButton)
+    const menuButton = screen.getByRole('button');
+    await fireEvent.click(menuButton);
 
-    const logoutItem = screen.getByText('Déconnexion')
-    await fireEvent.click(logoutItem)
+    const logoutItem = screen.getByText('Déconnexion');
+    await fireEvent.click(logoutItem);
 
-    expect(logoutUser).toHaveBeenCalled()
-  })
-})
+    expect(logoutUser).toHaveBeenCalled();
+  });
+});

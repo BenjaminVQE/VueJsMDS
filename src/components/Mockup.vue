@@ -1,5 +1,5 @@
 <script setup>
-import transat from '../assets/transat.png'
+import transat from "../assets/transat.png";
 </script>
 <template>
   <div class="mockup-container">

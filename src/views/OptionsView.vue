@@ -1,9 +1,9 @@
 <script setup>
-import NavBar from '../components/NavBar.vue'
-import Footer from '../components/Footer.vue'
-import Options from '@/components/Options.vue'
-import ButtonStep from '@/components/ButtonStep.vue'
-import Timeline from '@/components/Timeline.vue'
+import NavBar from "../components/NavBar.vue";
+import Footer from "../components/Footer.vue";
+import Options from "@/components/Options.vue";
+import ButtonStep from "@/components/ButtonStep.vue";
+import Timeline from "@/components/Timeline.vue";
 </script>
 
 <template>
@@ -18,7 +18,7 @@ import Timeline from '@/components/Timeline.vue'
 
 <style scoped>
 main {
-   margin-top: 50px;
-   text-align: center;
+  margin-top: 50px;
+  text-align: center;
 }
 </style>

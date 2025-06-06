@@ -1,19 +1,19 @@
 <script setup>
-import { toRef } from 'vue'
+import { toRef } from "vue";
 const props = defineProps({
-    Next: {
-        type: String,
-        required: false
-    },
-    Back: {
-        type: String,
-        required: true
-    }
-})
-const pathNext = toRef(props, 'Next')
-const pathBack = toRef(props, 'Back')
+  Next: {
+    type: String,
+    required: false,
+  },
+  Back: {
+    type: String,
+    required: true,
+  },
+});
+const pathNext = toRef(props, "Next");
+const pathBack = toRef(props, "Back");
 
-const emit = defineEmits(['confirm'])
+const emit = defineEmits(["confirm"]);
 </script>
 <template>
   <v-container>
@@ -28,12 +28,7 @@ const emit = defineEmits(['confirm'])
           <v-btn append-icon="mdi-chevron-right" color="primary">Suivant</v-btn>
         </router-link>
 
-        <v-btn
-          v-else
-          color="success"
-          append-icon="mdi-check"
-          @click="$emit('confirm')"
-        >
+        <v-btn v-else color="success" append-icon="mdi-check" @click="$emit('confirm')">
           Confirmer
         </v-btn>
       </v-col>

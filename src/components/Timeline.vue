@@ -1,13 +1,13 @@
 <script setup>
-import { ref, toRef } from 'vue'
+import { ref, toRef } from "vue";
 
 const props = defineProps({
   modelValue: {
     type: Number,
-    required: true
-  }
-})
-const step = toRef(props, 'modelValue')
+    required: true,
+  },
+});
+const step = toRef(props, "modelValue");
 </script>
 
 <template>
@@ -26,5 +26,4 @@ const step = toRef(props, 'modelValue')
       <v-stepper-item title="Estimation" value="4" color="success"></v-stepper-item>
     </v-stepper-header>
   </v-stepper>
-
 </template>
