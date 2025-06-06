@@ -6,3 +6,8 @@ import { RouterLink, RouterView } from 'vue-router'
   <RouterView />
 </template>
 
+<style>
+main {
+  min-height: 80vh;
+}
+</style>

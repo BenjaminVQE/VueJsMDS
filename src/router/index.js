@@ -1,13 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { authGuard } from '../router/authGuard.js'
 
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+
     {
       path: '/login',
       name: 'login',
-
+      
       component: () => import('../views/LoginView.vue'),
     },
     {
@@ -28,6 +30,14 @@ const router = createRouter({
       name: 'products',
       component: () => import('../views/ProductsView.vue'),
     },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: () => import('../views/ProfileView.vue'),
+      meta: {
+        requiresAuth: true,
+      },
+    }
   ],
 })
 
